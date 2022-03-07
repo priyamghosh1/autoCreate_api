@@ -44,13 +44,13 @@ class DrawMasterController extends Controller
             for ($i = 1; $i<=$total_count; $i++ ){
 
                 if($end_hour == 00){
-                    $visible_time = '12'.':'.$end_min.' am';
+                    $visible_time = '12'.':'.str_pad($end_min, 2 , '0',  STR_PAD_LEFT).' am';
                 }else if($end_hour>12){
-                    $visible_time =str_pad(((int)$end_hour-12), 2 , '0',  STR_PAD_LEFT).':'.$end_min.' pm';
+                    $visible_time =str_pad(((int)$end_hour-12), 2 , '0',  STR_PAD_LEFT).':'.str_pad($end_min, 2 , '0',  STR_PAD_LEFT).' pm';
                 }else if($end_hour==12){
-                    $visible_time =str_pad($end_hour, 2 , '0',  STR_PAD_LEFT).':'.$end_min.' pm';
+                    $visible_time =str_pad($end_hour, 2 , '0',  STR_PAD_LEFT).':'.str_pad($end_min, 2 , '0',  STR_PAD_LEFT).' pm';
                 }else{
-                    $visible_time = str_pad($end_hour, 2 , '0',  STR_PAD_LEFT).':'.$end_min.' am';
+                    $visible_time = str_pad($end_hour, 2 , '0',  STR_PAD_LEFT).':'.str_pad($end_min, 2 , '0',  STR_PAD_LEFT).' am';
                 }
 
                 $drawMaster = new DrawMaster();
